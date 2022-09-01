@@ -15,7 +15,7 @@ COPY ./go.sum /home/k8spacket/
 
 RUN cd /home/k8spacket/ && ./init.sh
 
-FROM golang:alpine
+FROM --platform=linux/arm64 golang:alpine
 
 RUN apk update && apk add libpcap-dev libcap net-tools iproute2 libc6-compat
 
