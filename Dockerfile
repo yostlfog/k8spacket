@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64 golang:1.17 AS build
+FROM --platform=linux/arm64/v8 golang:1.17 AS build
 
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install -y libpcap-dev
 
@@ -15,7 +15,7 @@ COPY ./go.sum /home/k8spacket/
 
 RUN cd /home/k8spacket/ && ./init.sh
 
-FROM --platform=linux/arm64 golang:alpine
+FROM --platform=linux/arm64/v8 golang:alpine
 
 RUN apk update && apk add libpcap-dev libcap net-tools iproute2 libc6-compat
 
