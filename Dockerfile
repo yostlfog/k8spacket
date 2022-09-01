@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 golang:1.17 AS build
+FROM --platform=linux/arm64 golang:1.17 AS build
 
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install -y libpcap-dev
 
